@@ -1,0 +1,16 @@
+.form-group {
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"] {
+  padding: 6px;
+  font-size: 14px;
+}

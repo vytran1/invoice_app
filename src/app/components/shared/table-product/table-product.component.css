@@ -1,0 +1,68 @@
+.product-selector {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f0fdf4;
+  border: 1px solid #a7f3d0;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  width: 90%;
+  max-width: 600px;
+  z-index: 1000;
+
+  /* ✅ Giới hạn chiều cao và cho phép cuộn */
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-selector table {
+  width: 100%;
+  border-collapse: collapse;
+
+  /* ✅ Phần này là mấu chốt */
+  overflow-y: auto;
+  display: block;
+  max-height: 60vh;
+}
+
+.product-selector thead {
+  position: sticky;
+  top: 0;
+  background-color: #a7f3d0;
+  z-index: 1;
+}
+
+.product-selector th,
+.product-selector td {
+  padding: 8px 12px;
+  text-align: left;
+  border-bottom: 1px solid #d1fae5;
+}
+
+.choose-btn {
+  padding: 6px 10px;
+  background-color: #34d399;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.close-btn {
+  background-color: transparent;
+  border: none;
+  color: #065f46; /* xanh lá đậm */
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: auto;
+  transition: color 0.2s ease;
+}
+
+.close-btn:hover {
+  color: #047857; /* xanh lá hover */
+}

@@ -1,0 +1,100 @@
+<form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+  <h1>Information Of Customer</h1>
+
+  <br />
+
+  <div formGroupName="customer">
+    <div class="form-group">
+      <label for="customer_name">CustomerName:</label>
+      <input id="customer_name" type="text" formControlName="name" />
+
+      @if(orderForm.get('customer.name')?.invalid &&
+      orderForm.get('customer.name')?.touched){
+      <div class="validatory-error-messgae">
+        @if(orderForm.get('customer.name')?.errors?.['required']){
+        <div>Customer Name Is Required</div>
+        } @if(orderForm.get('customer.name')?.errors?.['minLength']){
+        <div>Customer Name must have at least 3 characters</div>
+        }
+      </div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="address">Address:</label>
+      <input id="address" type="text" formControlName="address" />
+
+      @if(orderForm.get('customer.address')?.invalid &&
+      orderForm.get('customer.address')?.touched){
+      <div class="validatory-error-messgae">
+        @if(orderForm.get('customer.address')?.errors?.['required']){
+        <div>Customer Address Is Required</div>
+        }
+      </div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="phone_number">PhoneNumber:</label>
+      <input id="phone_number" type="text" formControlName="phone_number" />
+
+      @if(orderForm.get('customer.phone_number')?.invalid &&
+      orderForm.get('customer.phone_number')?.touched){
+      <div class="validatory-error-messgae">
+        @if(orderForm.get('customer.phone_number')?.errors?.['required']){
+        <div>Customer Phone Number is required</div>
+        } @if(orderForm.get('customer.phone_number')?.errors?.['pattern']){
+        <div>Customer Phone Number must have exactly 10 digits</div>
+        }
+      </div>
+      }
+    </div>
+  </div>
+
+  <h1>Information Of OrderDetails</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Unit Price</th>
+        <th>Quantity</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody formArrayName="orderDetails">
+      @for (detail of orderDetails.controls; track detail; let i = $index) {
+
+      <tr [formGroupName]="i">
+        <td>
+          <input type="text" readonly formControlName="product_name" />
+        </td>
+
+        <td>
+          <input type="number" readonly formControlName="unit_price" />
+        </td>
+
+        <td>
+          <input type="number" formControlName="quantity" />
+        </td>
+
+        <td>
+          <button (click)="removeOrderDetail(i)">Remove</button>
+        </td>
+      </tr>
+
+      }
+    </tbody>
+  </table>
+
+  <button (click)="openProductTable()">Add More Product</button>
+  <button>Submit</button>
+</form>
+
+@if (isOpenProductTable) {
+<app-table-product
+  (productEmitter)="addProductToOrder($event)"
+  (closeTableEmitter)="closeProductTable()"
+></app-table-product>
+}
