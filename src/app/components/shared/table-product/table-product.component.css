@@ -66,3 +66,39 @@
 .close-btn:hover {
   color: #047857; /* xanh lá hover */
 }
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16px;
+  gap: 12px;
+  font-family: Arial, sans-serif;
+}
+
+.pagination-btn {
+  padding: 8px 16px;
+  background-color: #34d399; /* xanh lá nhạt */
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.pagination-btn:disabled {
+  background-color: #d1fae5; /* xám xanh nhạt */
+  color: #6b7280; /* xám chữ */
+  cursor: not-allowed;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background-color: #059669; /* xanh lá đậm hơn */
+}
+
+.pagination-info {
+  font-size: 14px;
+  font-weight: bold;
+  color: #065f46; /* xanh lá đậm */
+}

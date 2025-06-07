@@ -21,7 +21,7 @@
     </thead>
 
     <tbody>
-      @for (product of products; track $index) {
+      @for (product of pagedProducts; track $index) {
       <tr>
         <td>{{ product.id }}</td>
         <td>{{ product.name }}</td>
@@ -36,4 +36,24 @@
       }
     </tbody>
   </table>
+
+  <div class="pagination-container">
+    <button
+      (click)="prevPage()"
+      [disabled]="pageNumber === 1"
+      class="pagination-btn"
+    >
+      &laquo; Prev
+    </button>
+    <span class="pagination-info">
+      Page {{ pageNumber }} / {{ totalPage }}
+    </span>
+    <button
+      (click)="nextPage()"
+      [disabled]="pageNumber === totalPage"
+      class="pagination-btn"
+    >
+      Next &raquo;
+    </button>
+  </div>
 </div>
