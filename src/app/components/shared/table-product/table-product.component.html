@@ -3,9 +3,11 @@
     class="header"
     style="display: flex; justify-content: space-between; align-items: center"
   >
-    <h2>Select Product</h2>
+    <h2>Select Product/Search Product</h2>
     <button class="close-btn" (click)="closeTable()">✕</button>
   </div>
+
+  <app-product-search (emitter)="onSearch($event)"></app-product-search>
 
   <table>
     <thead>

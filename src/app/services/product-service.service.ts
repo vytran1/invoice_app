@@ -49,4 +49,11 @@ export class ProductServiceService {
     }
     return Number(value) || 0;
   }
+
+  findAllByName(name: string): Product[] {
+    const keyWord = name.trim().toLowerCase();
+    return this.productSubject
+      .getValue()
+      .filter((product) => product.name.toLowerCase().includes(keyWord));
+  }
 }

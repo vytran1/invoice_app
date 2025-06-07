@@ -4,11 +4,12 @@ import { Product } from '../../../model/product.model';
 import { Subscription } from 'rxjs';
 import { log } from 'console';
 import { EventEmitter } from '@angular/core';
+import { ProductSearchComponent } from '../product-search/product-search.component';
 
 @Component({
   selector: 'app-table-product',
   standalone: true,
-  imports: [],
+  imports: [ProductSearchComponent],
   templateUrl: './table-product.component.html',
   styleUrl: './table-product.component.css',
 })
@@ -43,5 +44,9 @@ export class TableProductComponent implements OnInit, OnDestroy {
 
   chooseProduct($event: any) {
     this.productEmitter.emit($event);
+  }
+
+  onSearch($event: any) {
+    this.products = $event;
   }
 }

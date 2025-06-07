@@ -1,0 +1,10 @@
+<div class="search-container">
+  <label for="search">Please Enter The Name Of The Product You Need</label>
+  <input
+    id="search"
+    type="text"
+    [(ngModel)]="keyWord"
+    (input)="searchChange()"
+    placeholder="E.g. Apple, Banana..."
+  />
+</div>

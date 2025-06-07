@@ -1,0 +1,27 @@
+.search-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+  padding: 10px;
+  background-color: #ecfdf5; /* xanh nhạt nhẹ */
+  border-radius: 8px;
+}
+
+.search-container label {
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #065f46; /* xanh lá đậm */
+}
+
+.search-container input {
+  padding: 8px 12px;
+  border: 1px solid #a7f3d0;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.search-container input:focus {
+  border-color: #34d399; /* xanh khi focus */
+}
